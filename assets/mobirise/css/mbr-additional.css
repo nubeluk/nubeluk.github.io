@@ -840,12 +840,6 @@ section.form .container {
 #header2-1 .mbr-section-title {
   font-weight: 700;
 }
-#form2-3 .mbr-section-subtitle {
-  text-transform: uppercase;
-}
-#form2-3 .form-control-label {
-  color: undefined;
-}
 #footer1-7 .mbr-section-subtitle,
 #footer1-7 .mbr-section-text {
   color: #fff;
@@ -853,4 +847,10 @@ section.form .container {
 #footer1-7 .mbr-section-subtitle {
   margin-bottom: 20px;
   margin-top: 0;
+}
+#form2-9 .mbr-section-subtitle {
+  text-transform: uppercase;
+}
+#form2-9 .form-control-label {
+  color: undefined;
 }
