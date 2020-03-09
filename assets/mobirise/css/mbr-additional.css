@@ -848,6 +848,9 @@ section.form .container {
   margin-bottom: 20px;
   margin-top: 0;
 }
+#form2-9 .form-control-label {
+  color: undefined;
+}
 #form2-9 .mbr-section-subtitle {
   text-transform: uppercase;
 }
