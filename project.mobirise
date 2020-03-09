@@ -185,12 +185,6 @@
           "_anchor": "header2-1"
         },
         {
-          "_styles": {
-            ".mbr-section-subtitle": {
-              "text-transform": "uppercase"
-            },
-            ".form-control-label": {}
-          },
           "_params": {
             "showSubtitle": true,
             "showTitle": true,
@@ -245,7 +239,12 @@
             "Theme"
           ],
           "_name": "form2",
-          "_anchor": "form2-3"
+          "_anchor": "form2-3",
+          "_customHTML": "<section class=\"mbr-section form1 mbr-after-navbar\" data-rv-view=\"8\" style=\"background-color: rgb(236, 240, 241); padding-top: 120px; padding-bottom: 120px;\">\n    \n\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-xs-12 col-lg-10 col-lg-offset-1 text-xs-center\">\n\n                <div class=\"col-xs-12 col-lg-6\">\n                    \n                    <p class=\"mbr-section-subtitle lead mbr-editable-content\" code-editable-id=\"11\">Shape your future project.</p>\n\n                    <h1 class=\"mbr-section-title display-4 mbr-editable-content\" code-editable-id=\"12\">CONTACT US</h1>\n                    \n\n                </div>\n                \n                <div class=\"col-xs-12 col-lg-6\" data-form-type=\"formoid\">\n\n\n                    <div data-form-alert=\"true\">\n                        <div hidden=\"\" data-form-alert-success=\"true\" class=\"alert alert-form alert-success text-xs-center\">Thanks, we will be in touch shortly.</div>\n                    </div>\n\n\n                    <form action=\"\" method=\"post\" data-form-title=\"CONTACT US\">\n\n                        <input type=\"hidden\" value=\"fUnp3cwlqspo/sLtGZS9v/yqYTSkE6BgEKJrUB1jqWVOw6did8+WbcKrX+oSPwH5Dl5sR07j4Eo3WZTA/nw7ji5XMpIP+38MZFilU5OvLrmn3kYJWs2PaMoXT7j5A96k\" data-form-email=\"true\">\n\n                        <div class=\"row row-sm-offset\">\n\n                            <div class=\"col-xs-12\">\n                                <div class=\"form-group\">\n                                    <label class=\"form-control-label\" for=\"form2-3-name\">Name<span class=\"form-asterisk\">*</span></label>\n                                    <div class=\"form-icon\"><img src=\"@PROJECT_PATH@/assets/images/icon-name.png\"></div>\n                                    <input type=\"text\" class=\"form-control\" name=\"name\" required=\"\" data-form-field=\"Name\" placeholder=\"Name*\" id=\"form2-3-name\">\n                                </div>\n                            </div>\n\n                            <div class=\"col-xs-12 col-md-6\">\n                                <div class=\"form-group\">\n                                    <label class=\"form-control-label\" for=\"form2-3-email\">Email<span class=\"form-asterisk\">*</span></label>\n                                    <div class=\"form-icon\"><img src=\"@PROJECT_PATH@/assets/images/icon-email.png\"></div>\n                                    <input type=\"email\" class=\"form-control\" name=\"email\" required=\"\" data-form-field=\"Email\" placeholder=\"Email*\" id=\"form2-3-email\">\n                                </div>\n                            </div>\n\n                            \n\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label class=\"form-control-label\" for=\"form2-3-message\">Message</label>\n                            <textarea class=\"form-control\" name=\"message\" rows=\"7\" data-form-field=\"Message\" placeholder=\"Message\" id=\"form2-3-message\"></textarea>\n                        </div>\n\n                        <div class=\"text-lg-left text-xs-center\"><button type=\"submit\" class=\"btn btn-primary mbr-editable-button\" code-editable-id=\"13\">CONTACT US</button></div>\n\n                    </form>\n                </div>\n\n            </div>\n        </div>\n    </div>\n\n</section>",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_customCSS": ".mbr-section-subtitle {\n  text-transform: uppercase;\n}\n.form-control-label {\n  color: undefined;\n}\n",
+          "_customTemplate": true
         },
         {
           "_styles": {
