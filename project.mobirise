@@ -282,9 +282,9 @@
           "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem nobis, ea amet non commodi voluptate. Aspernatur libero cumque in unde et culpa corrupti asperiores praesentium voluptatum iure dolores illo nihil saepe distinctio eaque explicabo quis ipsam sed consectetur, accusantium ex qui. Voluptas nam consectetur, dolorem sed quo qui iusto dolor!",
           "buttons": "<a data-app-btn=\"true\" type=\"submit\" class=\"btn btn-primary\">CONTACT US</a>",
           "form": {
-            "action": "aproxitltd@gmail.com",
+            "action": "prizesnap@gmail.com",
             "alerts": {
-              "success": "Thanks for filling out form!"
+              "success": "Thanks, we will be in touch."
             },
             "fields": {
               "name": {
