@@ -32,7 +32,7 @@
     "siteUrl": false,
     "cookiesAlert": false,
     "gdpr": false,
-    "uniqCompNum": 10,
+    "uniqCompNum": 11,
     "versionPublish": "4.12.1"
   },
   "pages": {
@@ -243,7 +243,7 @@
           "text34": "",
           "text35": "",
           "followtext": "follow us",
-          "text": "Copyright (c) 2020 Nubel Ltd.",
+          "text": "Copyright (c) 2020 Nubel Digital Ltd.",
           "buttons": "<a data-app-btn=\"true\" class=\"btn btn-icon\" href=\"https://mobirise.com\"><span class=\"socicon socicon-twitter mbr-iconfont mbr-iconfont-btn\"></span></a><a data-app-btn=\"true\" class=\"btn btn-icon\" href=\"https://mobirise.com\"><span class=\"socicon socicon-pinterest mbr-iconfont mbr-iconfont-btn\"></span></a><a data-app-btn=\"true\" class=\"btn btn-icon\" href=\"https://mobirise.com\"><span class=\"socicon socicon-instagram mbr-iconfont mbr-iconfont-btn\"></span></a><a data-app-btn=\"true\" class=\"btn btn-icon\" href=\"https://mobirise.com\"><span class=\"socicon socicon-linkedin mbr-iconfont mbr-iconfont-btn\"></span></a><a data-app-btn=\"true\" class=\"btn btn-icon\" href=\"https://mobirise.com\"><span class=\"socicon socicon-facebook mbr-iconfont mbr-iconfont-btn\"></span></a>",
           "alias": "colorm/components",
           "_tags": [
@@ -253,10 +253,16 @@
           "_anchor": "footer1-7"
         },
         {
+          "_styles": {
+            ".mbr-section-subtitle": {
+              "text-transform": "uppercase"
+            },
+            ".form-control-label": {}
+          },
           "_params": {
             "showSubtitle": true,
             "showTitle": true,
-            "showText": true,
+            "showText": false,
             "paddingTop": 3,
             "paddingBottom": 3,
             "bgImageRadio": false,
@@ -274,11 +280,11 @@
           "title": "CONTACT US",
           "subtitle": "Shape your future project.",
           "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem nobis, ea amet non commodi voluptate. Aspernatur libero cumque in unde et culpa corrupti asperiores praesentium voluptatum iure dolores illo nihil saepe distinctio eaque explicabo quis ipsam sed consectetur, accusantium ex qui. Voluptas nam consectetur, dolorem sed quo qui iusto dolor!",
-          "buttons": "<a data-app-btn=\"true\" type=\"submit\" class=\"btn btn-primary\" data-toolbar=\"-mbrLink,-mbrBtnAdd,-mbrBtnMove\">CONTACT US</a>",
+          "buttons": "<a data-app-btn=\"true\" type=\"submit\" class=\"btn btn-primary\">CONTACT US</a>",
           "form": {
-            "action": "prizesnap@gmail.com",
+            "action": "aproxitltd@gmail.com",
             "alerts": {
-              "success": "Thanks, we will be in touch."
+              "success": "Thanks for filling out form!"
             },
             "fields": {
               "name": {
@@ -307,15 +313,7 @@
             "Theme"
           ],
           "_name": "form2",
-          "_anchor": "form2-9",
-          "_customHTML": "<section class=\"mbr-section form1 mbr-after-navbar\" data-rv-view=\"17\" style=\"background-color: rgb(236, 240, 241); padding-top: 120px; padding-bottom: 120px;\">\n    \n\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-xs-12 col-lg-10 col-lg-offset-1 text-xs-center\">\n\n                <div class=\"col-xs-12 col-lg-6\">\n                    \n                    <p class=\"mbr-section-subtitle lead mbr-editable-content\" code-editable-id=\"16\">Shape your future project.</p>\n\n                    <h1 class=\"mbr-section-title display-4 mbr-editable-content\" code-editable-id=\"17\">CONTACT US</h1>\n                    <p class=\"mbr-section-text lead mbr-editable-content\" code-editable-id=\"18\"></p>\n\n                </div>\n                \n                <div class=\"col-xs-12 col-lg-6\" data-form-type=\"formoid\">\n\n\n                    <div data-form-alert=\"true\">\n                        <div hidden=\"\" data-form-alert-success=\"true\" class=\"alert alert-form alert-success text-xs-center\">Thanks, we will be in touch.</div>\n                    </div>\n\n\n                    <form action=\"http://nubel.co.uk\" method=\"post\" data-form-title=\"CONTACT US\">\n\n                        <input type=\"hidden\" value=\"z1PMn2xsgFJKk4BFZlNjq2lfKsogTpbi6kRh8Pq7qggOYPrnM5FvDcQXA6icb32D4NzfruL4cpUZw0MV0A+waNRRoAMeZ2nt99ik/S2OUqqA+i6f/+M6vLgbrUXbvsmi\" data-form-email=\"true\">\n\n                        <div class=\"row row-sm-offset\">\n\n                            <div class=\"col-xs-12\">\n                                <div class=\"form-group\">\n                                    <label class=\"form-control-label\" for=\"form2-9-name\">Name<span class=\"form-asterisk\">*</span></label>\n                                    <div class=\"form-icon\"><img src=\"@PROJECT_PATH@/assets/images/icon-name.png\"></div>\n                                    <input type=\"text\" class=\"form-control\" name=\"name\" required=\"\" data-form-field=\"Name\" placeholder=\"Name*\" id=\"form2-9-name\">\n                                </div>\n                            </div>\n\n                            <div class=\"col-xs-12 col-md-6\">\n                                <div class=\"form-group\">\n                                    <label class=\"form-control-label\" for=\"form2-9-email\">Email<span class=\"form-asterisk\">*</span></label>\n                                    <div class=\"form-icon\"><img src=\"@PROJECT_PATH@/assets/images/icon-email.png\"></div>\n                                    <input type=\"email\" class=\"form-control\" name=\"email\" required=\"\" data-form-field=\"Email\" placeholder=\"Email*\" id=\"form2-9-email\">\n                                </div>\n                            </div>\n\n                            \n\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label class=\"form-control-label\" for=\"form2-9-message\">Message</label>\n                            <textarea class=\"form-control\" name=\"message\" rows=\"7\" data-form-field=\"Message\" placeholder=\"Message\" id=\"form2-9-message\"></textarea>\n                        </div>\n\n                        <div class=\"text-lg-left text-xs-center\"><button type=\"submit\" class=\"btn btn-primary mbr-editable-button\" code-editable-id=\"19\">CONTACT US</button></div>\n\n                    </form>\n                </div>\n\n            </div>\n        </div>\n    </div>\n\n</section>",
-          "_PHPplaceholders": [],
-          "_JSplaceholders": [],
-          "_customCSS": ".mbr-section-subtitle {\n  text-transform: uppercase;\n}\n.form-control-label {\n  color: undefined;\n}\n",
-          "_customTemplate": true,
-          "_styles": {
-            ".form-control-label": {}
-          }
+          "_anchor": "form2-a"
         }
       ]
     }
