@@ -7,17 +7,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Generate Starry Background
   initStarryBackground();
   
-  // 2. Typing Effect for Hero Title
-  initTypingEffect();
-  
-  // 3. Navigation Scrolling Effect & Mobile Menu
+  // 2. Navigation Scrolling Effect & Mobile Menu
   initNavigation();
   
-  // 4. Interactive Onboarding Steps Workflow
+  // 3. Interactive Onboarding Steps Workflow
   initOnboardingTimeline();
   
-  // 5. Contact Form Submission Handling
+  // 4. Contact Form Submission Handling
   initContactForm();
+
+  // 5. Parallax Scroll Effect for Hero Backdrop
+  initHeroParallax();
+
+  // 6. Hero Dashboard Cards Autoplay Carousel
+  initHeroCardsCarousel();
+
+  // 7. Interactive Cursor Glow Backdrop
+  initHeroMouseGlow();
+
+  // 8. Scroll Progress and Scroll-to-Top Button
+  initScrollEffects();
+
+  // 9. Intersection Observer Scroll Reveals
+  initScrollReveals();
 });
 
 /**
@@ -52,54 +64,7 @@ function initStarryBackground() {
   }
 }
 
-/**
- * Creates a continuous loop typing different phrases in the hero title.
- */
-function initTypingEffect() {
-  const target = document.getElementById('typedText');
-  if (!target) return;
-  
-  const phrases = [
-    'Huxley?',
-    'Modern Fundraising?',
-    'Compliant Draws?',
-    'Lower Rates?'
-  ];
-  
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typingSpeed = 100;
-  
-  function type() {
-    const currentPhrase = phrases[phraseIndex];
-    
-    if (isDeleting) {
-      target.textContent = currentPhrase.substring(0, charIndex - 1);
-      charIndex--;
-      typingSpeed = 50; // Deletes faster
-    } else {
-      target.textContent = currentPhrase.substring(0, charIndex + 1);
-      charIndex++;
-      typingSpeed = 120; // Types slightly slower for premium feel
-    }
-    
-    // If typing finished, pause before deletion
-    if (!isDeleting && charIndex === currentPhrase.length) {
-      isDeleting = true;
-      typingSpeed = 2000; // Pause at full word
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      typingSpeed = 500; // Pause before typing next word
-    }
-    
-    setTimeout(type, typingSpeed);
-  }
-  
-  // Start the typing animation loop
-  setTimeout(type, 1000);
-}
+
 
 /**
  * Manages navbar scroll backgrounds and responsive mobile toggle menu actions.
@@ -228,10 +193,23 @@ function initOnboardingTimeline() {
 
 /**
  * Handles the contact form submittals and triggers a mailto link with details.
+ * Also hooks select-plan buttons to auto-populate the dropdown.
  */
 function initContactForm() {
   const form = document.getElementById('contactForm');
   const alertBox = document.getElementById('formSuccessAlert');
+  const planSelect = document.getElementById('form-plan');
+  const planBtns = document.querySelectorAll('.select-plan-btn');
+  
+  // Listen for plan selections to auto-populate form
+  planBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedPlan = btn.getAttribute('data-plan');
+      if (planSelect && selectedPlan) {
+        planSelect.value = selectedPlan;
+      }
+    });
+  });
   
   if (!form) return;
   
@@ -241,16 +219,18 @@ function initContactForm() {
     const name = document.getElementById('form-name').value;
     const email = document.getElementById('form-email').value;
     const requirements = document.getElementById('form-message').value;
+    const chosenPlan = planSelect ? planSelect.options[planSelect.selectedIndex].text : 'None selected';
     
     // Format mailto body
     const emailTo = 'info@nubel.co.uk';
-    const subject = encodeURIComponent('Huxley Platform Inquiry');
+    const subject = encodeURIComponent('Huxley Platform Enquiry');
     const bodyContent = encodeURIComponent(
-      `Huxley Platform Inquiry Request\n` +
+      `Huxley Platform Enquiry Request\n` +
       `==============================\n\n` +
       `Name: ${name}\n` +
-      `Email: ${email}\n\n` +
-      `Inquiry / Requirements:\n` +
+      `Email: ${email}\n` +
+      `Selected Plan: ${chosenPlan}\n\n` +
+      `Enquiry / Requirements:\n` +
       `${requirements}\n` +
       `\n` +
       `Sent via Huxley Modern Platform Redesign Redirection.`
@@ -275,3 +255,170 @@ function initContactForm() {
     form.reset();
   });
 }
+
+/**
+ * Monitors window scrolls to update custom scroll offset property for parallax backdrops.
+ */
+function initHeroParallax() {
+  window.addEventListener('scroll', () => {
+    window.requestAnimationFrame(() => {
+      document.documentElement.style.setProperty('--scroll-offset', window.scrollY);
+    });
+  }, { passive: true });
+}
+
+/**
+ * Automatically cycles the layout classes of the three hero dashboard cards.
+ * Also pauses the rotation if the user hovers over the cards.
+ */
+function initHeroCardsCarousel() {
+  const mockContainer = document.querySelector('.hero-dashboard-mock');
+  if (!mockContainer) return;
+  
+  const cards = mockContainer.querySelectorAll('.dash-card');
+  if (cards.length < 3) return;
+  
+  // Carousel states mapping
+  let states = ['card-center', 'card-right', 'card-left'];
+  let autoCycleInterval;
+  
+  function cycleCards() {
+    states.unshift(states.pop());
+    
+    cards.forEach((card, index) => {
+      card.classList.remove('card-center', 'card-left', 'card-right');
+      card.classList.add(states[index]);
+    });
+  }
+  
+  function startAutoplay() {
+    autoCycleInterval = setInterval(cycleCards, 4000);
+  }
+  
+  function stopAutoplay() {
+    clearInterval(autoCycleInterval);
+  }
+  
+  mockContainer.addEventListener('mouseenter', stopAutoplay);
+  mockContainer.addEventListener('mouseleave', startAutoplay);
+  
+  // Click support to manually slide a card to center
+  cards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      if (!card.classList.contains('card-center')) {
+        stopAutoplay();
+        
+        while (states[index] !== 'card-center') {
+          states.unshift(states.pop());
+        }
+        
+        cards.forEach((c, idx) => {
+          c.classList.remove('card-center', 'card-left', 'card-right');
+          c.classList.add(states[idx]);
+        });
+        
+        startAutoplay();
+      }
+    });
+  });
+  
+  startAutoplay();
+}
+
+/**
+ * Tracks cursor positions inside the hero section to update mouse-glow backdrop offsets.
+ */
+function initHeroMouseGlow() {
+  const heroSection = document.getElementById('hero');
+  const mouseGlow = document.getElementById('heroMouseGlow');
+  
+  if (!heroSection || !mouseGlow) return;
+  
+  heroSection.addEventListener('mousemove', (e) => {
+    const rect = heroSection.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    mouseGlow.style.setProperty('--mouse-x', `${x}px`);
+    mouseGlow.style.setProperty('--mouse-y', `${y}px`);
+  }, { passive: true });
+  
+  heroSection.addEventListener('mouseleave', () => {
+    mouseGlow.style.setProperty('--mouse-x', `-999px`);
+    mouseGlow.style.setProperty('--mouse-y', `-999px`);
+  }, { passive: true });
+}
+
+/**
+ * Monitors page scrolls to update scroll progress bars and circular scroll-to-top button offsets.
+ */
+function initScrollEffects() {
+  const scrollProgressBar = document.getElementById('scrollProgressBar');
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+  const progressFill = document.querySelector('.progress-circle-fill');
+  const circumference = 2 * Math.PI * 18; // ~113.1px
+  
+  if (!scrollProgressBar && !scrollToTopBtn) return;
+  
+  window.addEventListener('scroll', () => {
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollHeight <= 0) return;
+    
+    const scrollPercent = window.scrollY / scrollHeight;
+    
+    // 1. Update Top Progress Bar width
+    if (scrollProgressBar) {
+      scrollProgressBar.style.width = `${scrollPercent * 100}%`;
+    }
+    
+    // 2. Show/Hide Scroll-to-Top circular button
+    if (scrollToTopBtn) {
+      if (window.scrollY > 400) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+      
+      // 3. Update circular progress SVG fill
+      if (progressFill) {
+        const offset = circumference - (scrollPercent * circumference);
+        progressFill.style.strokeDashoffset = offset;
+      }
+    }
+  }, { passive: true });
+  
+  // Smooth scroll back to top on click
+  if (scrollToTopBtn) {
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+}
+
+/**
+ * Connects IntersectionObserver to trigger smooth slide-up reveals on scroll-reveal elements.
+ */
+function initScrollReveals() {
+  const reveals = document.querySelectorAll('.scroll-reveal');
+  if (reveals.length === 0) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target); // Reveal only once for performance
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -8% 0px', // Trigger slightly before element reaches viewport center
+    threshold: 0.05
+  });
+  
+  reveals.forEach(r => observer.observe(r));
+}
+
+
